@@ -99,7 +99,7 @@ header .container {
 
 @media (min-width: 992px) {
     .header .logo {
-        width: auto;
+        width: 120px; /* antes tava auto porém ao chegar na tela 992px ele perde a ponta */
         height: 100px;
     }
 }
