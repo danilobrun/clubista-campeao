@@ -1,0 +1,71 @@
+### Project Torcedor Real ##
+# Aula 1 - 01/11 #
+1 [x] - Criação do html index.html
+2 [x] - Adicionamos <a> logo e seus atributos na tag a
+3 [x] - Adicionamos tag <a> no saiba mais com o targer="_blank" para abrir o link em uma nova aba
+4 [x] - Adicionamos nossa sacola bag buscando o icone no fontawesome usando a tag <i> + instalação da biblioteca de fonts  
+5 [x] - Transformamos a sacola/bag e um botão adicionado ela na tag <button>
+6 [x] - Precisamos aplicar a sombra do site do header devemos por todas nossas tags acima dentro de uma <div> class="header"
+7 [x] - Criação do nosso CSS tag <link> dentro do nosso <head> + RESET CSS
+8 [x] - Usando fontes externas do google fonts aplicamos ela no html antes do nosso css para carregar antes do css -> open sans podemos verificar as fontes usadas atraves do figma exemplo ope sans regular e open sans bold 400 e 600 lembrando que devemos aplicar a regra da fonte do google no css para ele aplicar a fonte desejada e podemos conferir no devtools -> computed
+9 [x] - No figma seguramos a tecla alt para verificar a distancias dos elementos (padding)
+10[x] - HTML Semântico trocamos a <div> para <header> de fato o cabeçalho
+11[x] - Verificado no figma a distancias dos elementos do header e defimos padding no headr de 10px 
+12[x] - Precisamos por logo no canto esquerdo e bag+saibamais no canto direto dessa forma separados os elementos inserindo uma nova <div> bag + saiba mais
+13[x] - Aplicamos no CSS um display: flex / justify-content: space-between; -> para jogar os elementos para o canto da tela
+14[x] - Aplicamos por Semântico a tag <nav> para as tang link <a>
+15[x] - Aplicamos na tag <button> um id para estilar nossa sacola/bag por ela ser uma font <i> conseguimos estilar com atribuitos de fonts (display, justify, align) tudo para forçar ele ficar alinhado.
+16[x] - Criamos uma variavel para aplicação de cores padrão para nao ficar repetindo código. :root {--main-color:color} para aplicação da váriavel basta usar o argumento var(varName) 
+17[x] - Estilizamos as tag <a> para um azul melhor
+18[x] - Abrimos ums estiliacao pengando de dentro .header a {text-decoration: none; color: inherit;} para tirar o sublinhado do link e o colo para ele herdar do pai  
+19[x] - Criamos nossa badge usando a tag <spam> demos uma class e inserimos dentro da tag pai dela <buttom>
+20[x] - CSS -> badge vamos incluir um position nele por padrão do html position sempre é static [não funciona o top, left, right...] position: relative [relaciona com a posição atual]
+20.1[x] -  CSS -> position: fixed [relação a view port], position: absolute [é relacionado ao pai mais próximo herdar] para isso nos demos um posição ao seu pai #btn-cart position: relative
+20[x] - Header deixando ele fixo para posicionamento atribuimos um postion: fixed -> width: 100% [pegar tela toda] -> background: #FFF [para que outros conteudos nao fica por cima desse elemento demos uma cor] -> top, lef: 0 [garantir para q outros navegadores renderizem direito]
+20.1[x] - Nossa main os elementos ficam por trás do header para corrigir defemos definir um um padding-top [de acordo com a altura do nosso header para forçar ele empurrar os outros elementos para baixo] e vamos setar isso no elemento body para criar um padding e empurrar os conteúdos.
+
+# Aula 2 - 03/11 #
+1 [x] - Adicionamos um padding 12px no headr a (saibamais)
+2 [x] - position: sticky (nova) para ficar fixo quando chegar nele.
+3 [x] - Vamos trabalhar com responsivo para isso vamos criar nosso container e incluir uma div class container dentro do nosso header para poder criar nosso respiro/bordas em todo site, porém ao add quebrou nosso header para corrigir devemos definir header container + display: flex e justifiy: space-between
+4 [x] - vamos trabalhar com medias queries no css -> @media (min-witdh: 576px) { {.container width: 540px}} quando a tela for maior que 576px aplique porém nossa witdh é aplicada no lado direito, nao centralizada conseguimos percerber isso pelo inspecionar user agent style display: block quando for block devemos definir esquerda e direta dos componentes incluindo um margin-left, margin-right: auto isso só aplica na primeira pq ele vai herdar para as outras @media queries
+5 [x] - Aplicamos todas as reponsividades usando o @media queries no padrão do bootstrap https://developer.mozilla.org/pt-BR/docs/Web/CSS/Media_Queries/Using_media_queries
+6 [x] - Conforme protótipo no figma nossa logo é responsiva mobile != desktop então devemos incluir uma classe no elemento img da logo + @media (min-width: 992px) queries novo para esse elemento se tornar responsivo por padrão vamos definir height: 100px conforme projeto e width: auto ele vai calucluar automático o css para definir a largura conforme proporção para as telas acima de 992px (ipad)
+7 [x] - Adicionamos um atributo css em nossa sacola para ele ficar com a maozinha pra indentificar para o usuário que é um elemento clicável.
+8 [x] - Conceitos mobile first celular em pé e deitado -> ipad em pé e deitado -> desktop
+9 [x] - Conceitos de margin sentido horário [topo,direita, baixo, esquerda]
+------------------ HEADER -----------------------------------------------------------
+10 [x] - Criamos nossos titles [h1,h2] estilizamos h1 com os padrões do projeto no figma [text-aling: center, font-size: 36, font-weight: 600, margin: 30px 0px 15px]
+11 [x] - Incluimos nossa classe container na div <main> para aplicar nosso respira de 12px nas bordas do site
+12 [x] - Vamos iniciar a criação do nosso card que também poderia ser um site de blog, devemos pensar em como criar e reultilizar esse card. criamos uma <div class="card"> -> <img definimos nosso width e height para a img para nao correr o risco do site carregar ficar montando a imagem. Para o título do prouto usamos um h3 -> 2x<p> -> <button>
+13 [x] - Estilizamos o nosso card -> tem uma propriedade css muito importante ao adicionarmos uma borda o comportamento padrão do css é caso os filhos sejam maiores que o pai ele vai estourar vai passar para fora da borda, ou seja devemos usar a propriedade overflow: hidden / podemos também usar o overflow: scroll para uma div e criar uma um scroll para uma div
+14 [x] - Estilizamos nossa imagem dentro do nosso card para ela ocupar 100% do card que é seu pai logo width: 100% porém ela estica demais nao temos como calcular nossa altura pq ela herda do pai card entao defimos height: auto para ela fazer essa calculo automántico. 
+15 [x] - Vamos criar uma <div> para nosso conteudo do card para porder incluir um padding. .card-content -> padding: 10px
+16 [x] - Estilizamos nosso h3 direto na tag porque vamos usar ela global. 
+17 [x] - Estilizando nossos botões uma dica para quando um elemento se repete muito em nossa página podemos criar uma classe base (pai) para ele e depois novas classes de estiliazacao de acordo do perfild do nosso botão, dessa forma criamos .btn (pai) .btn-main (1-estilo) .btn-main-outline (2-estilo). Observando temos um botão que ele pega 100% do seu conteúdo logo criamaos uma clase btn-block width: 100%
+18 [x] - HTML Semântico vamos alterar a div class: "card" para <article> essa tag semânticamente ela é independente de todo o resto do conteúdo da página. 
+19 [x] - Vamos criar uma div <section> para semântica e engloar uma seção por exemplo uma para comidas, bebidas, sobremesa uma section para cada. 
+20 [x] - Após criação da nossa section vamos usar a técnica de display grid para por os cards um ao lado do outro de acordo do tamanaho da tela por exemplo do mobile ao ir crescendo incluir dois cards, depois 3...
+21 [x] - Para isso vamos criar um pai <div> envolta dos cards <article> chamada div id="products-grid"> resolvemos por um ID porque futuramente vamos usar ele no javascript
+22 [x] - O display grid meio que usa o modo coluna e vamos usar as propriedades no dispay: grid / grid-template-colums: 1fr 1fr; [estamos dizendo que é um falor em fração e distribuir de forma igual] e usaremos a propriedade gap: 12px se vc obserar no inspetor ele vai mostrar que essa propriedade vai aplicar um row-gap: 12px e um column-gap: 12px [famoso respiro ele aplica].
+23 [x] - Reparamos que existem um espaco entre nossa imagem img e  nosso card-content uma margin isso acontece pq por padrão quando setamos uma img com widht e height direto no html ele por padrão seta display: inline assim botando essa margin mesmo a gente usando o reset css para isso vamos acrescentar a propriedade display: block em nosso img.
+24 [x] - Preocupação caso o conteúdo do meu card a descrição de um produto seja maior que de outro ouse ja nosso botão fica desalinhado, precisamos por propriedades de display: flex / fle-direction: column no nosso .card (pai) e setar nos filhos dele que sao .card-content e no card-content adicionar a prioridade flex-grow 1 para o crescimento orgânico do conteúdo.
+25 [x] - Após setar as configurações acima precisamos nosso card-content cresceu porém devemos informar ao botão para ele ficar alinhando sempre abaixo do card assim definos um margi-top: auto para nosso .btn e ele sempre fica abaixo indenpendente do conteudo preeenchido do card.
+--------------- MAIN ------------------------------------------------------------------------
+26 [x] - Vamos inicar nosso rodapé <footer> dentro dele criamos uma <p> para a frase + <a> ancora para o link do whatsapp com a logo do fontawesome + número telefonico
+27 [x] - Vamos estilizar nosso footer -> .footer {background-color: #333 / color: #FFF} + .footer a {color: inherit} (pq todos os nossos link fica azul devido nossa regra acima para isso usamos o inherit para herdar do pai dele ou seja o link ficar na cor branca pq vai hedar do footer pai dele) text-align: center oberve que os elementos tem uma margem.
+28 [x] - query string para whatsapp https://api.whatsapp.com/send?phone=5581999999999&text= (sempre que teiver uma ? é uma variável da query string do api do whatsapp como tenhos de phone + text um exemplo abaixo com texto)
+29 [x] - Olá, gostaria de uma pizaa -> https://api.whatsapp.com/send?phone=5581999999999&text=Ol%C3%A1,%20gostaria%20de%20uma%20pizza
+--------------- FOOTER -----------------------------------------------------------------------
+30 [x] - Iniciando o modal do carrinho -> vamos usar a tag <aside> pois essa tag a semântica informa que não tem muita relação com o conteúdo principal do site. Nosso carrinho abri um modal que preenche toda a página.
+31 [x] - Vamos começar fazendo o CSS do cart-sidebar usando os elementos para ele de ocupar tela e tudo.
+32 [x]  - Criando o botao btn-close-cart para fechar o carrinho e estilizamos
+33 [x] - criando uma div para sacola e frase (verificamos que a frase usa o mesmo estilo do nosso h2 porém, semânticamente não podemos por ela com h2 devido ao nível de importância, dessa forma criamos ela como p porém estilizamos como h2 usando a técnica no css h2, .h2 incluindo em tags e classe que tenha por definição h2)
+34 [x] - Devido a pegarmos icones do fontawesome e eles vens como fonte e estilizamos como fonte para saber o tamanho pegamos do figma a altura geralmente e definimos no nosso font-size
+PAREI 01:09
+
+
+### CHANGES BY DANILOBRUN ###
+1 - meu card devido a imagem precisei aumentar ele no meu css na classe .card -> from 291px to height: 370px;
+
+
