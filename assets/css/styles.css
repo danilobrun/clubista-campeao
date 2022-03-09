@@ -14,11 +14,11 @@ body {
     margin-top: 90px;
 }
 :root {
-    --main-color: #333;
-    --body-bg: #FAFAFA;
-    --body-color: #555;
-    --link-color: #333;
-    --link-color-hover: #EC5840;
+    --main-color: #333; /*colorHeader*/
+    --body-bg: #FAFAFA; /*body-bg-light*/
+    --body-color: #555; /*body-bg-dark*/
+    --link-color: #333; /*linkColordark*/
+    --link-color-hover: #EC5840; /*linkHover*/
 }
 
 a {
@@ -298,7 +298,7 @@ h3 {
     left: 0;
     width: 100vw; /*Ocupar 100% vw largura*/
     height: 100vh; /*Ocupar 100% vh altura*/
-    background-color: #FFF;
+    background-color: var(--body-color); /*body-bg-color*/
     padding: 15px; /*Respiro*/
     display: flex; /*Alinhar flex um ao lado do outro sempre por na div pai para os filhos herdar*/
     flex-direction: column; /*Alinhar verticamlente*/
@@ -306,9 +306,9 @@ h3 {
 }
 
 #btn-close-cart {
-    color: var(--main-color);
-    background-color: transparent;
-    font-size: 30px;
+    color: var(--body-bg); /*corBotaoFechar*/
+    background-color: transparent; /*fundoTransparante*/
+    font-size: 30px; /*tamanho*/
     padding: 5px; /*tamanho do conteúdo*/
     align-self: flex-end; /*Devido a herdar sua posicao, aplicamos alinhamento proprio no elemento*/    
 }
@@ -323,7 +323,7 @@ h3 {
 }
 
 #empty-cart .fa-suitcase-rolling {
-    color: var(--main-color);
+    color: var(--body-bg);
     opacity: 0.2;
     font-size: 154px;
     margin-bottom: 25px;
