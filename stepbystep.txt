@@ -52,6 +52,7 @@
 24 [x] - Preocupação caso o conteúdo do meu card a descrição de um produto seja maior que de outro ouse ja nosso botão fica desalinhado, precisamos por propriedades de display: flex / fle-direction: column no nosso .card (pai) e setar nos filhos dele que sao .card-content e no card-content adicionar a prioridade flex-grow 1 para o crescimento orgânico do conteúdo.
 25 [x] - Após setar as configurações acima precisamos nosso card-content cresceu porém devemos informar ao botão para ele ficar alinhando sempre abaixo do card assim definos um margi-top: auto para nosso .btn e ele sempre fica abaixo indenpendente do conteudo preeenchido do card.
 --------------- MAIN ------------------------------------------------------------------------
+# Aula 3 - 08/11 #
 26 [x] - Vamos inicar nosso rodapé <footer> dentro dele criamos uma <p> para a frase + <a> ancora para o link do whatsapp com a logo do fontawesome + número telefonico
 27 [x] - Vamos estilizar nosso footer -> .footer {background-color: #333 / color: #FFF} + .footer a {color: inherit} (pq todos os nossos link fica azul devido nossa regra acima para isso usamos o inherit para herdar do pai dele ou seja o link ficar na cor branca pq vai hedar do footer pai dele) text-align: center oberve que os elementos tem uma margem.
 28 [x] - query string para whatsapp https://api.whatsapp.com/send?phone=5581999999999&text= (sempre que teiver uma ? é uma variável da query string do api do whatsapp como tenhos de phone + text um exemplo abaixo com texto)
@@ -62,8 +63,15 @@
 32 [x]  - Criando o botao btn-close-cart para fechar o carrinho e estilizamos
 33 [x] - criando uma div para sacola e frase (verificamos que a frase usa o mesmo estilo do nosso h2 porém, semânticamente não podemos por ela com h2 devido ao nível de importância, dessa forma criamos ela como p porém estilizamos como h2 usando a técnica no css h2, .h2 incluindo em tags e classe que tenha por definição h2)
 34 [x] - Devido a pegarmos icones do fontawesome e eles vens como fonte e estilizamos como fonte para saber o tamanho pegamos do figma a altura geralmente e definimos no nosso font-size
-PAREI 01:09
+----------------- CART-SIDEBAR --------------------------------------------------------------------
+# Aula 3 - 08/11 - 01:17 #
+35 [x] - Iniciando a criação do modal de #Pedidos# para isso devemos comentar a div id="empty-card" do nosso cart-sider bar para sumir os elementos da tela e assim, podemos trabalhar na criação do modal para os Pedidos.
+36 [x] - Criar a <div id="cart-with-products">, <p> Resumo do pedido, Vamos criar nossos pedidos dentro de uma lista para isso vamos usar <ul><li> e por os produtos dentro
+37 [x] - Começamos com a <img> do produto estilazando tamanho 70, <p> nomeProduto, <p> Preco, <input> type"number" min="0" [informa que o valor minímo do input é 0 para o usuário não conseguir incluir valores negativos -1], value="1" [campo inica com valor 1]
+38 [x] - <buttom> incluir o incone de lixeira do fontawesome, estizar de acordo com o tamanho dele tudo isso dentro da lista.
+39 [x] - Vamos criar as estilizações de todos nossos elementos dentro da lista, <li class=.cart-item 
 
+Parei em 01:31 forms
 
 ### CHANGES BY DANILOBRUN ###
 1 - meu card devido a imagem precisei aumentar ele no meu css na classe .card -> from 291px to height: 370px;

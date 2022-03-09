@@ -195,15 +195,18 @@ h3 {
     margin-bottom: 10px;
 }
 
-.card-content .card-price {
-    font-weight: 600;
-    color: #37C957;
-    margin-bottom: 5px;
-}
-
 .card-content .btn {
     margin-top: auto;
 }
+
+/* PRICE */
+.price {
+    font-weight: 600;
+    color: #37C957;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
 /* BUTTON */
 .btn {
     text-align: center;
@@ -293,12 +296,12 @@ h3 {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100vw; /*Ocupar 100% vw largura*/
+    height: 100vh; /*Ocupar 100% vh altura*/
     background-color: #FFF;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
+    padding: 15px; /*Respiro*/
+    display: flex; /*Alinhar flex um ao lado do outro sempre por na div pai para os filhos herdar*/
+    flex-direction: column; /*Alinhar verticamlente*/
     
 }
 
@@ -306,16 +309,16 @@ h3 {
     color: var(--main-color);
     background-color: transparent;
     font-size: 30px;
-    padding: 5px;
-    align-self: flex-end;     
+    padding: 5px; /*tamanho do conteúdo*/
+    align-self: flex-end; /*Devido a herdar sua posicao, aplicamos alinhamento proprio no elemento*/    
 }
 
 #empty-cart {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+    display: flex; /*Alinha deixa um do lado do outro os el*/
+    flex-direction: column; /*tipo coluna alinha verticalmente*/
+    justify-content: center; /* alinhar vertical*/
+    align-items: center; /*alinhar horizonal, combinado com o de cima deixa no centro da tela*/
+    flex-grow: 1; /*Informa caso tenha espaço na div cresca, para assim alinhar verticaemtne*/
     
 }
 
@@ -324,6 +327,15 @@ h3 {
     opacity: 0.2;
     font-size: 154px;
     margin-bottom: 25px;
+}
+
+#cart-with-products ul {
+    list-style: none;
+}
+
+.cart-item img {
+    object-fit: cover; /*Por default vem como fill(preenche todos os espaços), contain (redimensiona a img para caber dentro), cover (redimensiona matem proporção e cobre todos os espaços em branco),     */
+    border-radius: 5px; /*Arrendondar a borda*/
 }
 
 
