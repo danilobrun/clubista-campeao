@@ -77,3 +77,4 @@ Parei em 01:31 forms
 1 - meu card devido a imagem precisei aumentar ele no meu css na classe .card -> from 291px to height: 370px;
 
 
+fdsfa
