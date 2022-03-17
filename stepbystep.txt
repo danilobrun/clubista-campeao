@@ -70,11 +70,22 @@
 37 [x] - Começamos com a <img> do produto estilazando tamanho 70, <p> nomeProduto, <p> Preco, <input> type"number" min="0" [informa que o valor minímo do input é 0 para o usuário não conseguir incluir valores negativos -1], value="1" [campo inica com valor 1]
 38 [x] - <buttom> incluir o incone de lixeira do fontawesome, estizar de acordo com o tamanho dele tudo isso dentro da lista.
 39 [x] - Vamos criar as estilizações de todos nossos elementos dentro da lista, <li class=.cart-item 
+40 [x] - Botamos nossos <p> da sacola dentro de uma div para poder alinhar os dois conteúdosum abaixo do outro
+50 [x] - Devido a aplciarmos o grid no pai cart-item ele força os elementos filhos irem pra cima dessa forma devemos setar altura e largura nos elementos para não herdarem do pai (cart-item input).
+51 [x] - Devido a setarmos o pai como grid cada elemento dentro dele vira uma coluna devemos definir uma distancia entre as colunas, direto no pai cart-item usando a propriedade gap
+52 [x]  - Na sacola pra cada item existe uma borda abaixo (boder-bottom) devemos sentar ele no elemento pai cart-item para que todos os itens do carrinho fique com uma borda abaixo
+53 [x] - Duplicamos a li do cart-item para verificar como fica o layout e observamos que está muito colada uma com a outra por isso vamos incluir um paddig entre elas no elemento pai cart-item
+54 [x] - Iniciamos o total do item do carrinho criando uma <div class="cart-total, display: flex">
+55 [x] - Vamos adicionar uma nova div dentro do cart-with-products os nossos botões Adicionar mais itens, fazer pedido e dar a estilização para eles (lembrando já temos classe de estilação para nossos botões btn)
+56 [x] - Continuando adicionamos todas as classes de estilização dos botões até a btn-block para ocupar 100% width
+57 [x] - Os botões precisa de magin para espaça-los então vamos no css criar o #cart-with-products .btn-main-outline do pai acessamos o filho e damos uma margin-bottom 12px
 
-Parei em 01:31 forms
+
+
+
+Parei em 01:49
 
 ### CHANGES BY DANILOBRUN ###
 1 - meu card devido a imagem precisei aumentar ele no meu css na classe .card -> from 291px to height: 370px;
-
-
-fdsfa
+2 - (fazer) pensar em mudar a cor do border-bottom do meu cart-item
+3 - meu cart-total p:not(.h2) diferente

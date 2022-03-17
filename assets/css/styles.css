@@ -225,8 +225,8 @@ h3 {
 
 .btn-main-outline {
     background-color: transparent;
-    border: 1px solid var(--main-color);
-    color: var(--main-color);
+    border: 1px solid #FFF;
+    color: #FFF;
 }
 
 .btn-block {
@@ -323,21 +323,72 @@ h3 {
 }
 
 #empty-cart .fa-suitcase-rolling {
-    color: var(--body-bg);
-    opacity: 0.2;
-    font-size: 154px;
-    margin-bottom: 25px;
+    color: var(--body-bg); /*sacolaVazia cor*/
+    opacity: 0.2; /*Nivel de transparência*/
+    font-size: 154px; /*Tamanho devido a ele ser uma icone de fonts <i>*/
+    margin-bottom: 25px; /*Margin empurrar os itens abaixi dele*/
 }
 
 #cart-with-products ul {
-    list-style: none;
+    list-style: none; /*por ser uma <ul> ele já vem com estilos aqui removemos*/
 }
 
+#cart-with-products .btn-main-outline { /*acessamos o btn-outline para dar uma margin abaixo para seperar os botões*/
+    margin-bottom: 12px;
+}
+
+.cart-item { /*Pai de todos os intens do carrinho*/
+    display: grid; /*todos os elementos dentro dele viram colunas*/
+    grid-template-columns: auto 1fr auto auto; /*1Column-auto: de acordo com altura no caso da img, 2column-1fr: muda de acordo com tam da tela do usuário no caso <p>, 3column-auto: tam do próprio input, 4column-auto: tam do própio buttom*/ 
+    gap: 12px; /*Alinhar entre as colunsa espaços*/
+    border-bottom: 1px solid #EAEAEA;
+    padding: 12px 0; /*padding 12px no top/bottom e right/left 0*/
+}
 .cart-item img {
-    object-fit: cover; /*Por default vem como fill(preenche todos os espaços), contain (redimensiona a img para caber dentro), cover (redimensiona matem proporção e cobre todos os espaços em branco),     */
+    object-fit: cover; /*Por default vem como fill(preenche todos os espaços), contain (redimensiona a img para caber dentro), cover (redimensiona matem proporção e cobre todos os espaços em branco)*/
     border-radius: 5px; /*Arrendondar a borda*/
 }
 
+.cart-item input { /*Meu input do carrinho qtd de pedido*/
+    width: 68px; /*largura figma*/
+    height: 38px; /*altura figma*/
+    align-self: center; /*alinhe vc mesmo no centro*/
+}
+
+.cart-item button { /*lixeira do resumo do pedido*/
+    color: var(--body-bg);
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    display: flex; /*Alinhar os itens de dentro*/
+    justify-content: center; /*Alinhar no centro horizontal*/
+    align-items: center; /*Alinhar no centro na vertical*/
+    background: transparent; /*Transparente devido ao icone do fontawesome*/
+    align-self: center; /*Alinhe vc mesmo no centro*/
+}
+
+.cart-total {
+    display: flex; /*Aplicamos o flex para o filhos <div> ficarem um ao lado do outro*/
+    justify-content: space-between; /*alinha o espaço entre eles empurrando um para cada ponta*/
+    align-items: center; /*Alinha ao centro da div atenção o h2 continha margin-bottom por isso vamos zerar a margin dele*/
+    padding: 12px 0; /*Crecesmo o conteúdo para cima e baixo para empurrar meu cart-total*/
+}
+
+.cart-total .h2 { /*Devido nossa class h2 estar estilizada com margin-bottom:8px devemos retirar a margin aqui para pode alinhar os elemntos*/
+    margin: 0; /*Após removemos agora sim o Total está alinhado com o price-total*/
+}
+
+.cart-total p:not(.h2) { /*do elemnto pai selecionamos o filho p que não contenha a classe h2 e estilizamos*/
+    font-size: 18px;
+    font-weight: 600; /*poderiamos usar o seletor acima também com o last-child() assim seria o ultimo filho <p>*/
+    color: #37C957;
+}
 
 
-
+/* FORMS */
+.form-input {
+    border: 1px solid #CED4DA; /*nosso input*/
+    border-radius: 4px; /*arrendondar*/
+    font-size: 16px; /*font do nosso input 16px de acordo com o figma, mesmo tamanaho do corpo do texto*/
+    padding: 9px; /*No figma nosso inpute tem tam 38 fazemos as contas (bord-1x2,pad-9x2,conteudo-18= total 38*/
+}
