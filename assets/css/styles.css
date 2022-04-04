@@ -312,9 +312,12 @@ h3 {
     height: 100vh; /*Ocupar 100% vh altura*/
     background-color: var(--body-color); /*body-bg-color*/
     padding: 15px; /*Respiro*/
-    display: flex; /*Alinhar flex um ao lado do outro sempre por na div pai para os filhos herdar*/
+    /* display: flex; Alinhar flex um ao lado do outro sempre por na div pai para os filhos herdar */
+    display: none;
     flex-direction: column; /*Alinhar verticamlente*/
-    
+}
+.cart-sidebar-open { /*ClassJS -> abrir cart-sidebar*/
+    display: flex; /*Usando o flex no lugar do none*/
 }
 
 #btn-close-cart {
@@ -322,7 +325,8 @@ h3 {
     background-color: transparent; /*fundoTransparante*/
     font-size: 30px; /*tamanho*/
     padding: 5px; /*tamanho do conteúdo*/
-    align-self: flex-end; /*Devido a herdar sua posicao, aplicamos alinhamento proprio no elemento*/    
+    align-self: flex-end; /*Devido a herdar sua posicao, aplicamos alinhamento proprio no elemento*/
+    cursor: pointer;    
 }
 
 #empty-cart {

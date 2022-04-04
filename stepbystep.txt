@@ -95,6 +95,12 @@ Aula - 10/11 - 24min
 68 [X] - Adicionando o hover sobre nossos btn para isso vamos no css no root (criação de var) add a variavel --main-color-light e aplicamos nos botões
 69 [x] - Vamos adicionar uma animação (transition) aos botoes assim que aplicar o hover aplicad na classe pai dos btn no caso .btn 
 70 [x] - sintaxe do transition: propriedade css (background), tempo da animacao(0.3s), lienar (uma velocidade só)
+71 [x] - Hospedagem no netlifly + adicionando pelo github para assim que der um push o dominio realizar o deplay CD (continuo deploy)
+72 [x] - No css no cart-side-bar aplicarmos um display none só para ocultar a sidebar para podemos trabalhar como JS.
+73 [x] - Dica criar um repositório no github -> exercicios (privado) git clone pegando url depois code abrindo a pasta exercicios para praticar.
+74 [x] - Acessado elementos através da DOM console.log(document.children[0].children[1].children[0].children[0].children[0].style = 'background: #0F0'); -> acessamos a nossa logo e definimos um style inline direto na tag img com  esse background.
+75 [x] - 
+
 
 
 

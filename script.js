@@ -1,23 +1,14 @@
-let nome = 'danilo'
-let sobrenome = 'brun'
-console.log(nome+'',sobrenome);
-
-console.log(`log na template string ${nome} ${sobrenome} \n aqui é a segunda linha`);
-console.log(`template string 1 linha
-template string linha 2`);
-
-
-
-const arr = [
-    obj = {
-    nome: "w",
-    idade: "20"
-    },
-    "ola",
-    "teste2"
-]
-
-console.log(arr);
-console.log(typeof(arr));
-console.log(arr[2]);
-console.log(arr[0]);
+function openSidebar () {
+    var cartSidebar = document.querySelector('.cart-sidebar') /*Seleciona .cart-sidebar*/
+    cartSidebar.classList.add('cart-sidebar-open') /*na lista de classes do cartSidebar add uma nova classe definida em nosso CSS*/
+}
+function closeSidebar () {
+    var cartSidebar = document.querySelector('.cart-sidebar') /*Seleciona meu cart-sidebar*/
+    cartSidebar.classList.remove('cart-sidebar-open') /*removemos a classe que faz o cart abrir*/
+}
+const btnCart = document.querySelector('#btn-cart') /*Selecionando o elemento sacola*/
+btnCart.addEventListener('click', openSidebar) /*(evento, ação)*/
+const btnCloseCart = document.querySelector('#btn-close-cart') /*Elemento fechar sacola*/
+btnCloseCart.addEventListener('click', closeSidebar) /*evento click, fechar carrinho*/
+const addMore = document.querySelector('#add-more') /*Elemento btn-outline*/
+addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
