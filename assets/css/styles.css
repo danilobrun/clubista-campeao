@@ -19,6 +19,7 @@ body {
     --body-color: #555; /*body-bg-dark*/
     --link-color: #333; /*linkColordark*/
     --link-color-hover: #EC5840; /*linkHover*/
+    --main-color-light: rgb(106, 105, 105); /*hover-btn*/
 }
 
 a {
@@ -215,17 +216,28 @@ h3 {
     cursor: pointer;
     background-color: #ddd;
     color: #424242;
-    padding: 10px 15px;
+    padding: 9px 15px;
+    transition: all 0.3s linear;
 }
 
 .btn-main {
     background-color: var(--main-color);
+    border: 1px solid var(--main-color); /*Necessários para os dois btn ficarem do mesmo tam*/
     color: #FFF;
+}
+.btn-main:hover {
+    background-color: var(--main-color-light);
+    border-color: var(--main-color-light);
 }
 
 .btn-main-outline {
     background-color: transparent;
-    border: 1px solid #FFF;
+    border: 1px solid #FFF; /*Necessários para os dois btn ficarem do mesmo tam*/
+    color: #FFF;
+}
+.btn-main-outline:hover {
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color); /*Necessários para os dois btn ficarem do mesmo tam*/
     color: #FFF;
 }
 
@@ -328,7 +340,9 @@ h3 {
     font-size: 154px; /*Tamanho devido a ele ser uma icone de fonts <i>*/
     margin-bottom: 25px; /*Margin empurrar os itens abaixi dele*/
 }
-
+#cart-with-products { /*div aside*/
+    overflow: auto; /*Aplicar scroll caso a lista fique grande*/
+}
 #cart-with-products ul {
     list-style: none; /*por ser uma <ul> ele já vem com estilos aqui removemos*/
 }
@@ -384,6 +398,15 @@ h3 {
     color: #37C957;
 }
 
+@media (min-width: 768px) { /*Tamanho de um iPad em pé*/
+    .cart-sidebar { /*class da tag aside todo modal-carrinho*/
+        width: 428px; /*largura para responsivo*/
+        right: 0; /*para o modal abrir na direita*/
+        left: auto; /*o left tem prioridade sobre o right para o righ se aplicado precisamos setar o left auto*/
+        box-shadow: -3px 0 6px rgba(0, 0, 0, .25); /*x y blur rgba(r g b a)*/
+    }
+}
+
 
 /* FORMS */
 .form-input {
@@ -392,3 +415,4 @@ h3 {
     font-size: 16px; /*font do nosso input 16px de acordo com o figma, mesmo tamanaho do corpo do texto*/
     padding: 9px; /*No figma nosso inpute tem tam 38 fazemos as contas (bord-1x2,pad-9x2,conteudo-18= total 38*/
 }
+

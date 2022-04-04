@@ -79,13 +79,43 @@
 55 [x] - Vamos adicionar uma nova div dentro do cart-with-products os nossos botões Adicionar mais itens, fazer pedido e dar a estilização para eles (lembrando já temos classe de estilação para nossos botões btn)
 56 [x] - Continuando adicionamos todas as classes de estilização dos botões até a btn-block para ocupar 100% width
 57 [x] - Os botões precisa de magin para espaça-los então vamos no css criar o #cart-with-products .btn-main-outline do pai acessamos o filho e damos uma margin-bottom 12px
+58 [x] - Se tivermos muitos produtos dentro do car-with-products nosso scroll não funciona devido a ser um modal uma tela sobre a outra por trás ainda está jossa pagina principal e o scroll que é realizado e feito nela, podemos ver aplicando um background-color: rgba(255, 255, 255, 0.3) em .cart-sidebar;
+59 [x] - Para isso vamos adicionar uma propriedade css chamada overflow podemos passar o scroll nela porém não resolve pois vai ficar dois scrolls e mesmo a lista de produtos estiver pequena ele aplica o scroll desnecessário. 
+60 [x] - Dessa forma vamos aplicar o overflow: auto assim ele aplica conforme o tamanho da tela e aplicamos em car-with-products.
+61 [x] - Se obsevamos nosso projeto no figma a pagina no desktop ela tem o cart-side-bar abrindo a direta não em tele cheia como é no mobile.
+62 [x] - Precisamos criar um @media query para telas maiores abrir nosso cart-sidebar a direta dessa forma criamos com as propriedades abaixo:
+63 [x] - Aplicação em na area /* CART */ uma observação é aplicação do left auto e right 0 para forçar abrir a direita nosso modal em tela desktop 768px width ou poderiamos ir na cart-sidebar e aplicar o right: 0 lá.
+64 [x] - Finalizamos nosso CART-SIDEBAR por enquanto vamos aplicar um display:none nele para sumir pois vamos fazer ele aparecer e reaparecer com o javascript
+65 [x] - Tem um site can i use para verificar a compatibilidade dos navegadores com as propriedades do css.
+------------------ JAVASCRIPT ----------------------------------------------------------
+Aula - 10/11 - 24min
+** Victor identificou que nosso asside estar maior que nosso body assim afetando e não aplicado o padding-left ficou de olhar depois **
+
+67 [x] - Nossos botões estão com tamanhos diferentes defido ao btn-outline ter uma borda 1 px vamos plicar a bordar.
+68 [X] - Adicionando o hover sobre nossos btn para isso vamos no css no root (criação de var) add a variavel --main-color-light e aplicamos nos botões
+69 [x] - Vamos adicionar uma animação (transition) aos botoes assim que aplicar o hover aplicad na classe pai dos btn no caso .btn 
+70 [x] - sintaxe do transition: propriedade css (background), tempo da animacao(0.3s), lienar (uma velocidade só)
 
 
 
 
-Parei em 01:49
+
+
+
+
+
 
 ### CHANGES BY DANILOBRUN ###
 1 - meu card devido a imagem precisei aumentar ele no meu css na classe .card -> from 291px to height: 370px;
 2 - (fazer) pensar em mudar a cor do border-bottom do meu cart-item
 3 - meu cart-total p:not(.h2) diferente
+
+#### Manipulações com o JS ###
+
+1- Abrir/Fechar carrinho 
+2 - Buscar produtos com uma requisição
+3 - Implementar adicionar ao carrinho
+4 - Exibir medalha e carrinho de acordo com os produtos
+5 - Implementar remover do carrinho
+6 - Implementar alteração de quantidade de item
+7 - Persistir itens do carrinho no storage
