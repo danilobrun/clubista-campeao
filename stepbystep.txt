@@ -88,7 +88,7 @@
 64 [x] - Finalizamos nosso CART-SIDEBAR por enquanto vamos aplicar um display:none nele para sumir pois vamos fazer ele aparecer e reaparecer com o javascript
 65 [x] - Tem um site can i use para verificar a compatibilidade dos navegadores com as propriedades do css.
 ------------------ JAVASCRIPT ----------------------------------------------------------
-Aula - 10/11 - 24min
+Aula - 22/11 - 57:03
 ** Victor identificou que nosso asside estar maior que nosso body assim afetando e não aplicado o padding-left ficou de olhar depois **
 
 67 [x] - Nossos botões estão com tamanhos diferentes defido ao btn-outline ter uma borda 1 px vamos plicar a bordar.
@@ -99,7 +99,11 @@ Aula - 10/11 - 24min
 72 [x] - No css no cart-side-bar aplicarmos um display none só para ocultar a sidebar para podemos trabalhar como JS.
 73 [x] - Dica criar um repositório no github -> exercicios (privado) git clone pegando url depois code abrindo a pasta exercicios para praticar.
 74 [x] - Acessado elementos através da DOM console.log(document.children[0].children[1].children[0].children[0].children[0].style = 'background: #0F0'); -> acessamos a nossa logo e definimos um style inline direto na tag img com  esse background.
-75 [x] - 
+75 [x] - Abrir e buscar os produtos do carrinho, usando uma API falsa.
+76 [x] - Instalação do Insomia para API
+77 [x] - Criação do nosso JSON para os produtos
+
+
 
 
 
