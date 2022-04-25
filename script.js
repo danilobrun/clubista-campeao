@@ -19,20 +19,21 @@ addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
 * Fetch Products
 */
  const fetchProducts = () => { /*arrow function*/
+     const groupsRootEl = document.querySelector('#groups-root')
      fetch('http://127.0.0.1:5501/products.json') //url, {} array de config
      .then(response => response.json()) //.then (parametro => paramentro.json() converter o obj em JSON)
      .then(body => {
-         const groupsRootEl = document.querySelector('#groups-root')
          groupsRootEl.innerHTML = '' //inseri uma string vazia
          body.groups.forEach((group) => { //agora recebe um parâmetro (que guardará nosso obj JSON)
             let groupHtml = `<section><h2>${group.name}</h2><div class="products-grid">` //criamos uma let para guardar os valores da nossa antiga estrutura HTML e não fechamos a div,section vamos deixar para fechar depois
              group.products.forEach((product) => { //acessando array de produtos e lendo cada item do array
+                const description = product.description != null ? `<p>${product.description}</p>` : '' //Operador ternario
                 groupHtml += `<article class="card">
                 <img src="${product.image}" alt="${product.name}" width="196" height="120"/>
                 <div class="card-content">
                     <h3>${product.name}</h3>
-                    <p class="price">R$ ${product.price}</p>
-                    <p>${product.description}</p>
+                    <p class="price">R$ ${product.price.toLocaleString('pt-br', {minimumFractionDigits: 2})}</p>
+                    ${description}
                     <button class="btn btn-main btn-block">Comprar</button>
                 </div>
             </article>`
@@ -41,6 +42,9 @@ addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
             groupsRootEl.innerHTML += groupHtml //groupsRootEl recebe valor do groupHtml e utilizada o metodo inner para renderizar no html
          });
      })
+     .catch((err) => {
+        groupsRootEl.innerHTML = `<p class="alert-error">Falha ao carregar produtos. Recarregue a página.</p>`
+     })
  }
  fetchProducts() //execFunction 
-
+ 

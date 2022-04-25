@@ -250,8 +250,26 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
+    margin-bottom: 16px;
 }
-
+/* Animação do loading */
+.loading-products { 
+    display: block;
+    text-align: center;
+    color: #999;
+    font-size: 30px;
+    margin: 30px 0;
+    animation: loading 1s linear infinite; /*nome tempo tipo infinito*/
+}
+@keyframes loading { /*passamos um parâmetro com um nome que nesse caso é loading e chamamos ela acima*/
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);  
+    }
+}
+ 
 @media (min-width: 576px) {
     .products-grid {
         grid-template-columns: 1fr 1fr 1fr;
@@ -420,3 +438,11 @@ h3 {
     padding: 9px; /*No figma nosso inpute tem tam 38 fazemos as contas (bord-1x2,pad-9x2,conteudo-18= total 38*/
 }
 
+/* ALERTS */
+.alert-error {
+    background-color: #f7b8b8;
+    border: 1px solid #c91212;
+    border-radius: 3px; /*arrendondar*/
+    padding: 10px 15px; /*espaço entre a borda e o texto 10px heigh 15px width*/
+    color: #8e0808;
+}
