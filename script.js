@@ -34,17 +34,33 @@ addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
                     <h3>${product.name}</h3>
                     <p class="price">R$ ${product.price.toLocaleString('pt-br', {minimumFractionDigits: 2})}</p>
                     ${description}
-                    <button class="btn btn-main btn-block">Comprar</button>
+                    <button class="btn btn-main btn-block btn-add-cart data-id="${product.id}">Comprar</button>
                 </div>
             </article>`
             })
             groupHtml += '</div></section>' //groupHtml recebe ele mesmo + o fechamento da div, section agora nossa variavel groupHTML está com o blobo de estrutura HTML correto.
             groupsRootEl.innerHTML += groupHtml //groupsRootEl recebe valor do groupHtml e utilizada o metodo inner para renderizar no html
-         });
+         })
+         setupAddToCart()
      })
      .catch((err) => {
+        console.log(err);
         groupsRootEl.innerHTML = `<p class="alert-error">Falha ao carregar produtos. Recarregue a página.</p>`
      })
  }
  fetchProducts() //execFunction 
- 
+
+ /*
+ * Products Cart
+ */
+const productsCart = []
+const addToCart = (event) => {
+    console.log('Vai adicionar', event.target.dataset); //no inspecionar não trás ID 
+}
+/*Funcao setupaddTocart*/
+const setupAddToCart = () => { //Adicionado essa funcao após o then (entrega da promessa)
+    const btnAddCartEls = document.querySelectorAll('.btn-add-cart') //seleciona os elementos pela classe
+    btnAddCartEls.forEach(btn => { //percorre o array btnAddCartEls, parâmetro btn função de callback 
+        btn.addEventListener('click', addToCart) //adiciona o evento de click, guarda o evento em addToCart
+    })
+}

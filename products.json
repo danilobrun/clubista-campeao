@@ -1,67 +1,67 @@
 {
     "groups": [
         {
-            "id": 1,
+            "id": "0",
             "name": "Camisas Especiais",
             "products": [
                 {
-                    "id": 1,
+                    "id": "1",
                     "name": "Camisa Corinthias",
                     "image": "/assets/img/produtos/corinthias-tshirt.jpeg",
                     "description": "Camisa Corinthians I 21/22 s/n° Torcedor Nike Masculina - Branco+Preto.",
                     "price": 99.9
                 },
                 {
-                    "id": 2,
+                    "id": "2",
                     "name": "Camisa Flamengo",
                     "image": "assets/img/produtos/flamengo-tshirt.jpeg",
                     "description": "Camisa Flamengo I 21/22 s/n° Torcedor Umbro Masculina - Verde+Vinho.",
                     "price": 99.9
                 },
                 {
-                    "id": 3,
+                    "id": "3",
                     "name": "Camisa Fluminense",
                     "image": "assets/img/produtos/fluminense-tshirt.jpeg",
                     "description": "Camisa Fluminense I 21/22 s/n° Torcedor Umbro Masculina - Verde+Vinho.",
                     "price": 99.9
                 },
                 {
-                    "id": 4,
+                    "id": "4",
                     "name": "Camisa Náutico",
                     "image": "assets/img/produtos/nautico-tshirt.jpeg",
                     "description": "Camisa Náutico 2021 Oficial Home S/N - Vermelho.",
                     "price": 99.9
                 },
                 {
-                    "id": 5,
+                    "id": "5",
                     "name": "Camisa Palmeiras",
                     "image": "assets/img/produtos/palmeiras-tshirt.jpeg",
                     "description": "Camisa Palmeiras I 22/23 s/n° Torcedor Puma Masculina - Verde+Branco.",
                     "price": 99.9
                 },
                 {
-                    "id": 6,
+                    "id": "6",
                     "name": "Camisa Santa Cruz",
                     "image": "assets/img/produtos/santacruz-tshirt.jpeg",
                     "description": "Camisa Santa Cruz PE 1983 Retrô Masculina - Preto.",
                     "price": 99.9
                 },
                 {
-                    "id": 7,
+                    "id": "7",
                     "name": "Camisa Sao Paulo",
                     "image": "assets/img/produtos/saopaulo-tshirt.jpeg",
                     "description": "Camisa São Paulo I 22/23 s/n° Torcedor Adidas Masculina - Branco.",
                     "price": 99.9
                 },
                 {
-                    "id": 8,
+                    "id": "8",
                     "name": "Camisa Sport",
                     "image": "assets/img/produtos/sport-tshirt.jpeg",
                     "description": "Camisa Sport Recife I 21/22 s/n° Torcedor Umbro Masculina - Vermelho+Preto.",
                     "price": 99.9
                 },
                 {
-                    "id": 9,
+                    "id": "9",
                     "name": "Camisa Vasco",
                     "image": "assets/img/produtos/vasco-tshirt.jpeg",
                     "description": "Camisa Vasco II 20/21 s/n° Torcedor Kappa Masculina - Branco+Preto.",
@@ -70,41 +70,41 @@
             ]
         },
         {
-            "id": 2,
+            "id": "10",
             "name": "Acessórios",
             "products": [
                 {
-                    "id": 1,
+                    "id": "11",
                     "name": "Chuteira Society Kappa",
                     "image": "assets/img/produtos/kappa-fotballboots.jpeg",
                     "price": 50.9
                 },
                 {
-                    "id": 2,
+                    "id": "12",
                     "name": "Bola de Futebol Campo Nike",
                     "image": "assets/img/produtos/nike-ball.jpeg",
                     "price": 59.9
                 },
                 {
-                    "id": 3,
+                    "id": "13",
                     "name": "Chuteira Society Nike",
                     "image": "assets/img/produtos/nike-fotballboots.jpeg",
                     "price": 159.9
                 },
                 {
-                    "id": 4,
+                    "id": "14",
                     "name": "Bola de Futebol Campo Penalti",
                     "image": "assets/img/produtos/penalti-ball.jpeg",
                     "price": 89.9
                 },
                 {
-                    "id": 5,
+                    "id": "15",
                     "name": "Bola de Futebol Campo UEFA",
                     "image": "assets/img/produtos/uefa-ball.jpeg",
                     "price": 99.9
                 },
                 {
-                    "id": 6,
+                    "id": "16",
                     "name": "Chuteira Society Umbro",
                     "image": "assets/img/produtos/umbro-fotballboots.jpeg",
                     "price": 159.9
