@@ -80,7 +80,7 @@ header .container {
 .logo {
     color: #000;
 }
-.badge {
+.badge { /*Classe padrão da medalha para aparecer em tela*/
     background: #333;
     width: 20px;
     height: 20px;
@@ -88,7 +88,7 @@ header .container {
     color: var(--body-bg);
     border: 1px solid var(--body-bg);
     border-radius: 100%;
-    display: flex;
+    display: none; /*Ocultar a medalha*/
     justify-content: center;
     align-items: center;
     right: 5px;
@@ -96,6 +96,9 @@ header .container {
     /* top: 20px;
     left: 20px; */
     position: absolute;
+}
+.badge-show { /*Classe para atualização do elemento medalha*/
+    display: flex; /*Exibe a medalha*/
 }
 
 @media (min-width: 992px) {
@@ -348,12 +351,15 @@ h3 {
 }
 
 #empty-cart {
-    display: flex; /*Alinha deixa um do lado do outro os el*/
+    display: none; /*Alinha deixa um do lado do outro os el*/
     flex-direction: column; /*tipo coluna alinha verticalmente*/
     justify-content: center; /* alinhar vertical*/
     align-items: center; /*alinhar horizonal, combinado com o de cima deixa no centro da tela*/
     flex-grow: 1; /*Informa caso tenha espaço na div cresca, para assim alinhar verticaemtne*/
     
+}
+#empty-cart.empty-cart-show {
+    display: flex;
 }
 
 #empty-cart .fa-suitcase-rolling {
@@ -364,6 +370,10 @@ h3 {
 }
 #cart-with-products { /*div aside*/
     overflow: auto; /*Aplicar scroll caso a lista fique grande*/
+    display: none;
+}
+#cart-with-products.cart-with-products-show {
+    display: block;
 }
 #cart-with-products ul {
     list-style: none; /*por ser uma <ul> ele já vem com estilos aqui removemos*/

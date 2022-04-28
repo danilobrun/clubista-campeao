@@ -17,7 +17,7 @@ addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
 
 /*
 * Fetch Products
-*/
+*/ 
  const fetchProducts = () => { /*arrow function*/
      const groupsRootEl = document.querySelector('#groups-root')
      fetch('http://127.0.0.1:5501/products.json') //url, {} array de config
@@ -34,7 +34,12 @@ addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
                     <h3>${product.name}</h3>
                     <p class="price">R$ ${product.price.toLocaleString('pt-br', {minimumFractionDigits: 2})}</p>
                     ${description}
-                    <button class="btn btn-main btn-block btn-add-cart data-id="${product.id}">Comprar</button>
+                    <button class="btn btn-main btn-block btn-add-cart" 
+                    data-id="${product.id}"
+                    data-name="${product.name}"
+                    data-image="${product.image}"
+                    data-price="${product.price}" 
+                    >Comprar</button>
                 </div>
             </article>`
             })
@@ -53,10 +58,38 @@ addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
  /*
  * Products Cart
  */
-const productsCart = []
+let productsCart = []
 const addToCart = (event) => {
-    console.log('Vai adicionar', event.target.dataset); //no inspecionar não trás ID 
+    const product = event.target.dataset //no inspecionar não trás ID
+    const index = productsCart.findIndex((item) => { //Função callback percorre o array e verifica se já existe o mesmo produto se não tiver ele add, se tiver ele atualiza a qty
+        if (item.id == product.id) {
+            return true
+        }
+        return false
+    })
+    if (index == -1) {
+        productsCart.push({
+            ...product, //adiciona ele mesmo product++
+            price: Number(product.price), //converte o price de string para número
+            qty: 1
+        })
+    } else {
+        productsCart[index].qty++ //add ele mesmo no caso +1
+    }
+    handleCartUpdate()
 }
+function removeOfCart () {
+    const { id } = this.dataset //modelo de destruturação pegar o ID dentro do dataset.id
+    productsCart = productsCart.filter((product) => {
+        if (product.id != id) {
+            return true
+        }
+        return false
+    })
+    handleCartUpdate()
+}
+
+  
 /*Funcao setupaddTocart*/
 const setupAddToCart = () => { //Adicionado essa funcao após o then (entrega da promessa)
     const btnAddCartEls = document.querySelectorAll('.btn-add-cart') //seleciona os elementos pela classe
@@ -64,3 +97,51 @@ const setupAddToCart = () => { //Adicionado essa funcao após o then (entrega da
         btn.addEventListener('click', addToCart) //adiciona o evento de click, guarda o evento em addToCart
     })
 }
+const setupRemoveOfCart = () => {
+    const btnRemoveCartEls = document.querySelectorAll('.btn-remove-cart')
+    btnRemoveCartEls.forEach((btn) => {
+        btn.addEventListener('click', removeOfCart)
+    })
+}
+const handleCartUpdate = () => { //Rederização do carrinho
+    const badgeEl = document.querySelector('#btn-cart .badge') //seleciona o elemento no DOM como ID e seleciona seu elemento filho que contenha o a classe .badge
+    const emptyCartEl = document.querySelector('#empty-cart') //Seleciona o elemento com esse ID
+    const cartWithProductsEl = document.querySelector('#cart-with-products')
+    const cartItensParent = cartWithProductsEl.querySelector('ul') // seleciona o elemento ul de dentro do #cart-with-products
+    const cartTotalValueEl = document.querySelector('#cart-total-value')
+    const totalCart = productsCart.reduce((total, item) => { //Função que itera sobre o array, função de callback (total, item) aonde total incia com 0
+        return total + item.qty //Na primeira vez total= 0 + item.qty do item percorrido do array no segundo looping passado por ele o total já vai ter o valor do item.qty não mais o valor 0
+    }, 0) //representa o valor do priemiro parâmetro que é total no caso total = 0
+    /*Outro exemplo usando tamanho do array porém para nosso caso não funciona*/
+    
+    if (totalCart > 0) { //Lógica caso totalCart > 0 (tem algum item no carro) mostre os produtos
+        badgeEl.classList.add('badge-show') //Executa a variavel com os metodos classlist.add para adicionar uma nova classe ao elemento
+        badgeEl.innerText = totalCart //O texto do elemento recebe o tamanho do array
+        cartWithProductsEl.classList.add('cart-with-products-show')
+        emptyCartEl.classList.remove('empty-cart-show') //remove a msg de carrinho vazio
+        cartItensParent.innerHTML = '' //String vazia
+        productsCart.forEach((product) => { //iterar sobre o array, abaixo add ele mesmo string vazia e depois recebe a template string
+            cartItensParent.innerHTML += `<li class="cart-item">
+            <img src="${product.image}" alt="${product.name}" width="70" height="70"/>
+            <div>
+                <p class="h3">${product.name}</p>
+                <p class="price">R$ ${product.price.toLocaleString('pt-br', {minimumFractionDigits: 2})}</p>
+            </div>
+            <input class="form-input" type="number" min="0" value="${product.qty}">
+            <button class="btn-remove-cart" data-id="${product.id}">
+                <i class="fas fa-trash-alt"></i>
+            </button>       
+        </li>`
+        })
+        setupRemoveOfCart()
+        const totalPrice = productsCart.reduce((total, item) => { //somar o valor total R$
+            return total + (item.qty * item.price)
+        }, 0)
+        cartTotalValueEl.innerText = 'R$ ' + totalPrice.toLocaleString('pt-br', {minimumFractionDigits: 2})
+    } else { //Caso não mostre o carrinho vázio
+        badgeEl.classList.remove('badge-show') //Renderizar remover
+        emptyCartEl.classList.add('empty-cart-show')
+        cartWithProductsEl.classList.remove('cart-with-products-show')
+    }
+}
+handleCartUpdate()
