@@ -61,12 +61,7 @@ addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
 let productsCart = []
 const addToCart = (event) => {
     const product = event.target.dataset //no inspecionar não trás ID
-    const index = productsCart.findIndex((item) => { //Função callback percorre o array e verifica se já existe o mesmo produto se não tiver ele add, se tiver ele atualiza a qty
-        if (item.id == product.id) {
-            return true
-        }
-        return false
-    })
+    const index = productsCart.findIndex((item) => item.id == product.id)
     if (index == -1) {
         productsCart.push({
             ...product, //adiciona ele mesmo product++
@@ -80,12 +75,7 @@ const addToCart = (event) => {
 }
 function removeOfCart () {
     const { id } = this.dataset //modelo de destruturação pegar o ID dentro do dataset.id
-    productsCart = productsCart.filter((product) => {
-        if (product.id != id) {
-            return true
-        }
-        return false
-    })
+    productsCart = productsCart.filter((product) => product.id != id)
     handleCartUpdate()
 }
 
@@ -109,11 +99,7 @@ const handleCartUpdate = () => { //Rederização do carrinho
     const cartWithProductsEl = document.querySelector('#cart-with-products')
     const cartItensParent = cartWithProductsEl.querySelector('ul') // seleciona o elemento ul de dentro do #cart-with-products
     const cartTotalValueEl = document.querySelector('#cart-total-value')
-    const totalCart = productsCart.reduce((total, item) => { //Função que itera sobre o array, função de callback (total, item) aonde total incia com 0
-        return total + item.qty //Na primeira vez total= 0 + item.qty do item percorrido do array no segundo looping passado por ele o total já vai ter o valor do item.qty não mais o valor 0
-    }, 0) //representa o valor do priemiro parâmetro que é total no caso total = 0
-    /*Outro exemplo usando tamanho do array porém para nosso caso não funciona*/
-    
+    const totalCart = productsCart.reduce((total, item) => total + item.qty, 0) 
     if (totalCart > 0) { //Lógica caso totalCart > 0 (tem algum item no carro) mostre os produtos
         badgeEl.classList.add('badge-show') //Executa a variavel com os metodos classlist.add para adicionar uma nova classe ao elemento
         badgeEl.innerText = totalCart //O texto do elemento recebe o tamanho do array
