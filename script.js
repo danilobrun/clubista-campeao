@@ -20,7 +20,7 @@ addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
 */ 
  const fetchProducts = () => { /*arrow function*/
      const groupsRootEl = document.querySelector('#groups-root')
-     fetch('http://127.0.0.1:5501/products.json') //url, {} array de config
+     fetch('/products.json') //url, {} array de config
      .then(response => response.json()) //.then (parametro => paramentro.json() converter o obj em JSON)
      .then(body => {
          groupsRootEl.innerHTML = '' //inseri uma string vazia
