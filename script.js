@@ -58,8 +58,8 @@ addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
  /*
  * Products Cart
  */
-let productsCart = []
-const addToCart = (event) => {
+let productsCart = [] //array vazio para adicionar os produtos
+const addToCart = (event) => { //função para adicionar no carrinho, checa se o produto já esta no carrinho caso não add e + 1 em qty
     const product = event.target.dataset //no inspecionar não trás ID
     const index = productsCart.findIndex((item) => item.id == product.id)
     if (index == -1) {
@@ -71,12 +71,12 @@ const addToCart = (event) => {
     } else {
         productsCart[index].qty++ //add ele mesmo no caso +1
     }
-    handleCartUpdate()
+    handleCartUpdate() //Sempre depois de add no carrinho chama essa função para renderizar em tela
 }
-function removeOfCart () {
+function removeOfCart () { //Remoção cria uma copia do array mesmo aquele ID que queremos excluir
     const { id } = this.dataset //modelo de destruturação pegar o ID dentro do dataset.id
     productsCart = productsCart.filter((product) => product.id != id)
-    handleCartUpdate()
+    handleCartUpdate() //Chama o mesmo cara para atualizar os efeitos colaterais
 }
 
   
@@ -87,13 +87,38 @@ const setupAddToCart = () => { //Adicionado essa funcao após o then (entrega da
         btn.addEventListener('click', addToCart) //adiciona o evento de click, guarda o evento em addToCart
     })
 }
-const setupRemoveOfCart = () => {
-    const btnRemoveCartEls = document.querySelectorAll('.btn-remove-cart')
-    btnRemoveCartEls.forEach((btn) => {
-        btn.addEventListener('click', removeOfCart)
-    })
+/*Funca lidar com Keydown User input*/
+const handleKeydown = event => { //função para impedir caracteres indevidos
+    if (event.key == '-' || event.key == '.') { //seleciona event.key é o valor
+        event.preventDefault() //impede o comportamento padrão de permitir no input os valores
+    }
 }
-const handleCartUpdate = () => { //Rederização do carrinho
+const handleUpdateQty = (event) => {
+    const { id } = event.target.dataset //id recebe product.id
+    const qty = parseInt(event.target.value) //função para converter string em Int
+    if (qty > 0) {
+        const index = productsCart.findIndex(item => item.id == id) //Itera sobre o array para achar seu index
+        productsCart[index].qty = qty //adiciona qty do input no qty do produto
+        handleCartUpdate(false) //executa o atualização do carrinho
+    } else {
+        productsCart = productsCart.filter((product) => product.id != id) //Se o produto for diferente retorna true inclui produto no carrinho, caso não returna false exclui produto do carrinho
+        handleCartUpdate() //Renderiza e exclui o item
+    }
+     
+}
+const setupCartEvents = () => { //Evento d o carrinho
+    const btnRemoveCartEls = document.querySelectorAll('.btn-remove-cart') //Captura botao através da classe
+    btnRemoveCartEls.forEach((btn) => { //Itera sobre o array de inputs com parâmetro btn para usar depois na função
+        btn.addEventListener('click', removeOfCart) //adiciona evento escuta do click, executa função removeOfCart
+    })
+    const inputsQtyEl = document.querySelectorAll('.input-qty-cart') //Catpura input através da classe
+    inputsQtyEl.forEach((input) => { //Itera o array e executa uma função passando um parâmetro input 
+        input.addEventListener('keydown', handleKeydown)
+        input.addEventListener('keyup', handleUpdateQty)
+        input.addEventListener('change', handleUpdateQty)
+    })   
+}
+const handleCartUpdate = (renderItens = true) => { //Rederização do carrinho por padrão é true ou seja na hora de chamar ele não preciso dizer se ele é true
     const badgeEl = document.querySelector('#btn-cart .badge') //seleciona o elemento no DOM como ID e seleciona seu elemento filho que contenha o a classe .badge
     const emptyCartEl = document.querySelector('#empty-cart') //Seleciona o elemento com esse ID
     const cartWithProductsEl = document.querySelector('#cart-with-products')
@@ -105,21 +130,23 @@ const handleCartUpdate = () => { //Rederização do carrinho
         badgeEl.innerText = totalCart //O texto do elemento recebe o tamanho do array
         cartWithProductsEl.classList.add('cart-with-products-show')
         emptyCartEl.classList.remove('empty-cart-show') //remove a msg de carrinho vazio
-        cartItensParent.innerHTML = '' //String vazia
-        productsCart.forEach((product) => { //iterar sobre o array, abaixo add ele mesmo string vazia e depois recebe a template string
-            cartItensParent.innerHTML += `<li class="cart-item">
-            <img src="${product.image}" alt="${product.name}" width="70" height="70"/>
-            <div>
-                <p class="h3">${product.name}</p>
-                <p class="price">R$ ${product.price.toLocaleString('pt-br', {minimumFractionDigits: 2})}</p>
-            </div>
-            <input class="form-input" type="number" min="0" value="${product.qty}">
-            <button class="btn-remove-cart" data-id="${product.id}">
-                <i class="fas fa-trash-alt"></i>
-            </button>       
-        </li>`
-        })
-        setupRemoveOfCart()
+        if (renderItens) { //se renderItens=True
+            cartItensParent.innerHTML = '' //String vazia
+            productsCart.forEach((product) => { //iterar sobre o array, abaixo add ele mesmo string vazia e depois recebe a template string
+                cartItensParent.innerHTML += `<li class="cart-item">
+                <img src="${product.image}" alt="${product.name}" width="70" height="70"/>
+                <div>
+                    <p class="h3">${product.name}</p>
+                    <p class="price">R$ ${product.price.toLocaleString('pt-br', {minimumFractionDigits: 2})}</p>
+                </div>
+                <input class="form-input input-qty-cart" type="number" min="0" value="${product.qty}" data-id="${product.id}">
+                <button class="btn-remove-cart" data-id="${product.id}">
+                    <i class="fas fa-trash-alt"></i>
+                </button>       
+            </li>`
+            })
+            setupCartEvents()
+        }
         const totalPrice = productsCart.reduce((total, item) => { //somar o valor total R$
             return total + (item.qty * item.price)
         }, 0)
