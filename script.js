@@ -2,8 +2,10 @@
 * Open/Close cart sidebar
 */
 const cartSidebar = document.querySelector('.cart-sidebar') /*Seleciona .cart-sidebar*/
-function openSidebar () {
+function openSidebar (event) { //Abrir carrinho
+    event.stopPropagation() //Para de propagar o evento para os elementos pai
     cartSidebar.classList.add('cart-sidebar-open') /*na lista de classes do cartSidebar add uma nova classe definida em nosso CSS*/
+
 }
 function closeSidebar () {
     cartSidebar.classList.remove('cart-sidebar-open') /*removemos a classe que faz o cart abrir*/
@@ -14,6 +16,8 @@ const btnCloseCart = document.querySelector('#btn-close-cart') /*Elemento fechar
 btnCloseCart.addEventListener('click', closeSidebar) /*evento click, fechar carrinho função de callBack*/
 const addMore = document.querySelector('#add-more') /*Elemento btn-outline*/
 addMore.addEventListener('click', closeSidebar) /*evenco click, fechar sidebar*/
+document.addEventListener('click', closeSidebar) //evento de click, no body para fechar o sidebar de carrinho
+cartSidebar.addEventListener('click', event => event.stopPropagation()) //aside do carrinho para propagação do evento
 
 /*
 * Fetch Products
