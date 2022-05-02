@@ -118,7 +118,9 @@ const setupCartEvents = () => { //Evento d o carrinho
         input.addEventListener('change', handleUpdateQty)
     })   
 }
+const keyCart = '@torcedor/productsCart' //chaveLocalStorage
 const handleCartUpdate = (renderItens = true) => { //Rederização do carrinho por padrão é true ou seja na hora de chamar ele não preciso dizer se ele é true
+    localStorage.setItem(keyCart, JSON.stringify(productsCart)) //setar item no carrinho
     const badgeEl = document.querySelector('#btn-cart .badge') //seleciona o elemento no DOM como ID e seleciona seu elemento filho que contenha o a classe .badge
     const emptyCartEl = document.querySelector('#empty-cart') //Seleciona o elemento com esse ID
     const cartWithProductsEl = document.querySelector('#cart-with-products')
@@ -157,4 +159,14 @@ const handleCartUpdate = (renderItens = true) => { //Rederização do carrinho p
         cartWithProductsEl.classList.remove('cart-with-products-show')
     }
 }
-handleCartUpdate()
+
+const initCart = () => {
+    const savedProducts = localStorage.getItem(keyCart) //pegando itens do local storage key: productsCart e guardando em uma var
+    if (savedProducts) { //se savedProducts for true ( != null )
+        productsCart = JSON.parse(savedProducts) //convertendo em JSON array
+    }
+    handleCartUpdate() //executa a renderização
+}
+initCart() //executa a função
+
+
