@@ -221,6 +221,8 @@ h3 {
     color: #424242;
     padding: 9px 15px;
     transition: all 0.3s linear;
+    text-decoration: none;
+    display: block;
 }
 
 .btn-main {
@@ -446,6 +448,32 @@ h3 {
     border-radius: 4px; /*arrendondar*/
     font-size: 16px; /*font do nosso input 16px de acordo com o figma, mesmo tamanaho do corpo do texto*/
     padding: 9px; /*No figma nosso inpute tem tam 38 fazemos as contas (bord-1x2,pad-9x2,conteudo-18= total 38*/
+}
+.form-input::placeholder, /*seletorEspecial padrão*/
+.form-input::-ms-input-placeholder, /*NavegorAntigo IE*/
+.form-input:-ms-input-placeholder { /*Nevegador Edge*/
+    color: #999999;
+    opacity: 1; /*Negador Mz pois ele aplica um opacity parão dele*/
+}
+.form-group {
+    margin-bottom: 12px;
+}
+.form-group label {
+    display: block; /*block para fazer ocupar a linha inteira cada div assim jogando para baixo a outra div*/
+}
+.form-group .form-input {
+    width: 100%;
+}
+.form-checkout { /*div pai do forms*/
+    max-width: 424px; /*tamanho máximo*/
+    margin-left: auto; /*centralizar conteudo poderia ser margin-left auto e margin-right auto quando e elemento é display block por padrao*/
+    margin-right: auto;
+    margin-bottom: 50px; /*Respiro para o rodapé*/
+}
+.form-row { /*div pai do form-group de numero,complemento*/
+   display: grid; /*informar que queremos que os filhos dele sejam grid*/
+   grid-template-columns: 1fr 1fr; /*fracao por coluna dois cards*/
+   gap: 12px; /*espaço entre as colunas*/
 }
 
 /* ALERTS */
