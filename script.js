@@ -204,4 +204,14 @@ const handleCheckoutSubmit = event => { /*função simples para interromper o ev
     window.open(`https://${subdomain}.whatsapp.com/send?phone=5581979139104&text=${text}`, '_blank')
 }
 const formCheckoutEl = document.querySelector('.form-checkout') /*Captura El formulário*/
-formCheckoutEl.addEventListener('submit', handleCheckoutSubmit) /*Adiciona uma esconta ao EL do tipo submit e executa a função interromper o submit*/
+formCheckoutEl?.addEventListener('submit', handleCheckoutSubmit) /*Adiciona uma esconta ao EL do tipo submit e executa a função interromper o submit*/
+
+/* Masks */
+const inputPhoneEl = document.querySelector('#input-phone')
+IMask(inputPhoneEl, { /*Executa a função IMask(como parâmetro passamos nosso elemento) */
+    mask: '(00) 00000-0000' // formato da máscara pattern
+})
+const inputCepEl = document.querySelector('#input-cep')
+IMask(inputCepEl, {
+    mask: '00000-000'
+});

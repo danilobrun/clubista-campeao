@@ -31,24 +31,24 @@
         <form class="form-checkout" action="">
             <div class="form-group">
                 <label for="input-name">Nome</label>
-                <input type="text" class="form-input" placeholder="Digite seu nome" id="input-name" name="input-name"/>
+                <input type="text" class="form-input" placeholder="Digite seu nome" id="input-name" name="input-name" required/>
             </div>
             <div class="form-group">
                 <label for="input-phone">Telefone</label>
-                <input type="text" class="form-input" placeholder="(99) 99999-9999" id="input-phone"/>
+                <input type="text" class="form-input" placeholder="(99) 99999-9999" id="input-phone" required/>
             </div>
             <div class="form-group">
                 <label for="input-cep">CEP</label>
-                <input type="text" class="form-input" placeholder="99999-999" id="input-cep"/>
+                <input type="text" class="form-input" placeholder="99999-999" id="input-cep" required/>
             </div>
             <div class="form-group">
                 <label for="input-address">Endereço</label>
-                <input type="text" class="form-input" placeholder="Rua, Avenida, etc." id="input-address"/>
+                <input type="text" class="form-input" placeholder="Rua, Avenida, etc." id="input-address" required/>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="input-number">Número</label>
-                    <input type="text" class="form-input" placeholder="" id="input-number"/>
+                    <input type="text" class="form-input" placeholder="" id="input-number" required/>
                 </div>
                 <div class="form-group">
                     <label for="input-complement">Complemento</label>
@@ -58,11 +58,11 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="input-neighborhood">Bairro</label>
-                    <input type="text" class="form-input" placeholder="" id="input-neighborhood"/>
+                    <input type="text" class="form-input" placeholder="" id="input-neighborhood" required/>
                 </div>
                 <div class="form-group">
                     <label for="input-city">Cidade</label>
-                    <input type="text" class="form-input" placeholder="" id="input-city"/>
+                    <input type="text" class="form-input" placeholder="" id="input-city" required/>
                 </div>
             </div>
             <button class="btn btn-main btn-block">Calcular frete</button>
@@ -86,6 +86,7 @@
                 <a href="/" class="btn btn-main-outline btn-block" id="add-more">Adicionar mais itens</a>
         </div>
     </aside>
+    <script src="https://unpkg.com/imask"></script>
     <script src="./script.js"></script>
 </body>
 </html>
