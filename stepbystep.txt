@@ -88,7 +88,7 @@
 64 [x] - Finalizamos nosso CART-SIDEBAR por enquanto vamos aplicar um display:none nele para sumir pois vamos fazer ele aparecer e reaparecer com o javascript
 65 [x] - Tem um site can i use para verificar a compatibilidade dos navegadores com as propriedades do css.
 ------------------ JAVASCRIPT ----------------------------------------------------------
-Aula - 06/12
+Aula - 08/12
 ** Victor identificou que nosso asside estar maior que nosso body assim afetando e não aplicado o padding-left ficou de olhar depois **
 
 67 [x] - Nossos botões estão com tamanhos diferentes defido ao btn-outline ter uma borda 1 px vamos plicar a bordar.

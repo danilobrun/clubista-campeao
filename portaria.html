@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Pessoas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <main class="text-center">
+        <h1 class="my-5">Controle de Pessoas</h1>
+        <button class="btn btn-success btn-lg" id="btn-enter">Entrou 1 pessoa</button>
+        <button class="btn btn-danger btn-lg" id="btn-leave">Saiu 1 pessoa</button>
+        <p class="mt-5"><strong id="qty-people">0</strong> Pessoas na casa.</p>
+        <p>Situação: <strong id="situation">Vazia</strong></p>
+    </main>
+    <script>
+        let nPeople = 0
+        document.querySelector('#btn-enter').addEventListener('click', () => {
+            nPeople++
+            updateScreen()
+        })
+        document.querySelector('#btn-leave').addEventListener('click', () => {
+            if (nPeople > 0) {
+                nPeople--
+                updateScreen()
+            }
+        })
+        const updateScreen = () => {
+            document.querySelector('#qty-people').innerHTML = nPeople
+            const situationEl = document.querySelector('#situation')
+            const situation = nPeople < 10
+            ? 'Vazia'
+            : nPeople < 20 ? 'Moderada' : 'Lotada'
+            situationEl.innerHTML = situation
+            const situationClass = nPeople < 20 ? '' : 'text-white bg-danger'
+            situationEl.className = situationClass
+        }
+    </script>
+</body>
+</html>

@@ -215,3 +215,5 @@ const inputCepEl = document.querySelector('#input-cep')
 IMask(inputCepEl, {
     mask: '00000-000'
 });
+
+/* Portaria */
